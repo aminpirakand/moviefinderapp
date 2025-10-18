@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
+import MovieList from './components/MovieList'; 
 import './App.css';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div className="app-container">
       <Header />
       <main>
-        {/* محتوای اصلی برنامه اینجا خواهد بود */}
+        <MovieList /> 
       </main>
       <Footer />
     </div>

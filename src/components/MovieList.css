@@ -1,0 +1,8 @@
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* فاصله بین کارت‌ها */
+  padding: 20px;
+  padding-bottom: 80px; /* برای اینکه محتوا زیر فوتر نرود */
+}
