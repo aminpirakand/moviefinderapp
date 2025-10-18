@@ -1,15 +1,13 @@
 import React from 'react'
 
-function MovieCard() {
-  const movieTitle = "Inception";
-  const movieYear = 2010;
-  const moviePoster = "https://picsum.photos/id/1/200/300";
+function MovieCard(props) {
+  
 
   return (
     <div className="movie-card">
-      <img src={moviePoster} alt={movieTitle} />
-      <h3>{movieTitle}</h3>
-      <p>{movieYear}</p>
+      <img src={props.poster} alt={props.title} />
+      <h3>{props.title}</h3>
+      <p>{props.year}</p>
     </div>
   );
 
