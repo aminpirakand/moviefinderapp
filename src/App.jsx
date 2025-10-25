@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MovieList from './components/MovieList'; 
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="app-container">
       <Header />
+      <SearchBar /> 
       <main>
         <MovieList movies={initialMovies} /> 
       </main>
