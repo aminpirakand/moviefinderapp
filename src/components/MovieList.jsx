@@ -8,10 +8,8 @@ function MovieList(props) {
       {movies.map(movie => (
         <MovieCard
           key={movie.id} // کلید منحصر به فرد
-          title={movie.title} // ارسال عنوان به عنوان prop
-          year={movie.year} // ارسال سال به عنوان prop
-          poster={movie.poster} // ارسال پوستر به عنوان prop
-        />
+           movie={movie} 
+           />
       ))}
     </div>
 

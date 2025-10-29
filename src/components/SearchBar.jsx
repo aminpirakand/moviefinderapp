@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar({ searchTerm, onSearchChange }) {
   // State برای نگهداری متن جستجو
-  const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (event) => {
     // آپدیت کردن State با مقدار ورودی کاربر
-    setSearchTerm(event.target.value);
+    onSearchChange(event.target.value);
   };
 
 
   // Event handler جدید برای پاک کردن
   const handleClearClick = () => {
-    setSearchTerm('');
+    onSearchChange('');
   };
 
 
