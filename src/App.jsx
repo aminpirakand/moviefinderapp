@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AboutPage from './pages/AboutPages';
 import HomePage from './pages/HomePage';
+import MovieDetailsPage from './pages/MovieDetailsPage'; 
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
         <Routes> {/* تعریف محل نمایش صفحات */}
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
         </Routes>
       </div>
       <Footer />

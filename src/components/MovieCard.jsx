@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import React from 'react'
+import { Link } from 'react-router-dom'; 
 
 function MovieCard({movie}) {
   const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
@@ -21,6 +22,7 @@ function MovieCard({movie}) {
 
 
   return (
+    <Link to={`/movie/${movie.id}`} className="movie-card-link">
     <div className="movie-card">
       <img src={posterUrl} alt={movie.title} />
       <h3>{movie.title}</h3>
@@ -36,6 +38,7 @@ function MovieCard({movie}) {
 
 
     </div>
+    </Link>
   );
 
 }
