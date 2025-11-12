@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import CastList from "../components/CastList";
+import { useFavorites } from '../context/FavoritesContext'; 
 
 function MovieDetailsPage() {
   const navigate = useNavigate(); // دریافت تابع navigate
@@ -13,6 +14,16 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState(null); // State برای نگهداری جزئیات فیلم
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const isFavorite = movie ? favorites.some(fav => fav.id === movie.id) : false;
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      removeFavorite(movie.id);
+    } else {
+      addFavorite(movie);
+    }
+  };
 
   useEffect(() => {
     const apiKey = "2f5eff245e0b1e1b32a37093a95db62c";
@@ -59,6 +70,10 @@ function MovieDetailsPage() {
           <h1>
             {movie.title} ({movie.release_date.substring(0, 4)})
           </h1>
+                <button onClick={handleFavoriteClick} className="favorite-btn">
+        {isFavorite ? '❤️ Remove from Favorites' : '🤍 Add to Favorites'}
+      </button>
+
           <p className="tagline">
             <em>{movie.tagline}</em>
           </p>

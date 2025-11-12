@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React from 'react'
 import { Link } from 'react-router-dom'; 
 
-function MovieCard({movie}) {
+function MovieCard({movie, onActionClick, actionLabel}) {
   const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
   const posterUrl = movie.poster_path ? posterBaseUrl + movie.poster_path : 'https://via.placeholder.com/200x300';
 
@@ -22,15 +22,23 @@ function MovieCard({movie}) {
 
 
   return (
-    <Link to={`/movie/${movie.id}`} className="movie-card-link">
     <div className="movie-card">
+    <Link to={`/movie/${movie.id}`} className="movie-card-link">
+
       <img src={posterUrl} alt={movie.title} />
       <h3>{movie.title}</h3>
       <p>{movie.release_date}</p>
       <p> {movie.vote_average.toFixed(1)}</p>
+       </Link>
       <button onClick={handleLikeClick} className={isLiked ? 'like-btn liked' : 'like-btn'}>
       {isLiked ? '❤️ Liked' : '🤍 Like'}
       </button>
+      {onActionClick && (
+        <button onClick={() => onActionClick(movie.id)} className="action-btn">
+          {actionLabel}
+        </button>
+      )}
+
 
       <button onClick={handleViewClick} className="view-btn">
         Viewed ({viewCount})
@@ -38,7 +46,7 @@ function MovieCard({movie}) {
 
 
     </div>
-    </Link>
+   
   );
 
 }

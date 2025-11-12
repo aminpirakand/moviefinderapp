@@ -1,19 +1,19 @@
 import MovieCard from './MovieCard';
 import './MovieList.css'; // فایل استایل جدید
 
-function MovieList(props) {
-    const movies = props.movies
+function MovieList({ movies, onActionClick, actionLabel }) {
   return (
-   <div className="movie-list">
+    <div className="movie-list">
       {movies.map(movie => (
-        <MovieCard
-          key={movie.id} // کلید منحصر به فرد
-           movie={movie} 
-           />
+        <MovieCard 
+        key={movie.id}
+        movie={movie} 
+        onActionClick={onActionClick} 
+        actionLabel={actionLabel} />
       ))}
     </div>
-
   );
 }
+
 
 export default MovieList;
