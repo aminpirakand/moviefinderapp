@@ -14,16 +14,17 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState(null); // State برای نگهداری جزئیات فیلم
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const { favorites, dispatch } = useFavorites();
   const isFavorite = movie ? favorites.some(fav => fav.id === movie.id) : false;
 
   const handleFavoriteClick = () => {
-    if (isFavorite) {
-      removeFavorite(movie.id);
-    } else {
-      addFavorite(movie);
-    }
-  };
+  if (isFavorite) {
+    dispatch({ type: 'REMOVE_FAVORITE', payload: movie.id });
+  } else {
+    dispatch({ type: 'ADD_FAVORITE', payload: movie });
+  }
+};
+
 
   useEffect(() => {
     const apiKey = "2f5eff245e0b1e1b32a37093a95db62c";
