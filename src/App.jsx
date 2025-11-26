@@ -14,7 +14,7 @@ function App() {
 
   return (
         <FavoritesProvider> 
-     <div className="app-container">
+     <div className="container">
       <Header />
       <div className="content">
         <Routes> {/* تعریف محل نمایش صفحات */}
